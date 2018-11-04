@@ -1,6 +1,6 @@
 const { absoluteDir } = require('./tool')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
@@ -13,32 +13,24 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader']
-        }) 
+        test: /\.js$/,
+        exclude: /node_modules/, 
+        loader: "babel-loader"
       },
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            'sass-loader'
-          ]
-        })
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name]-[hash].css'),
+    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index-template.html'
+      template: absoluteDir('../src/resource/index-template.html')
     })
   ],
   resolve: {
-    extensions: ['.js', '.vue', '.scss', '.css', '.sass'],
+    extensions: ['.js', '.vue', '.scss', '.sass', '.css'],
     alias: {
       '@': absoluteDir('../src'),
       'pages': absoluteDir('../src/pages'),

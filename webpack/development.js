@@ -5,16 +5,26 @@ const webpack = require('webpack')
 
 module.exports = smart(base, {
   mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['vue-style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  },
   devServer: {
     contentBase: absoluteDir('../dist'),
     host: '0.0.0.0',
     port: 9100,
     hot: true
   },
-  optimization: {
-    namedModules: true
-  },
   plugins: [
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]
 })
