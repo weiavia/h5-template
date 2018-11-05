@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: none;
+  overflow: -moz-scrollbars-vertical;
+}
+
+html,
+body,
+p,
+div,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:active,
+a:link,
+a:visited {
+  text-decoration: none;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  border: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: Helvetica, "微软雅黑";
+}
+
+
+html, body {
+  height: 100%;
+}
+
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+
+.bgfull {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.bbox {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.tc {
+  text-align: center;
+}
+
+
+.hide {
+  display: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.clearfix:after {
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.flex {
+  display: flex;
+  -webkit-display: flex;
+}
+
+
+.fullscreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.alert {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, .8)
+}
+
+.alertover {
+  position: absolute;
+  z-index: 10000;
+}
+
+
+.pcenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) ;
+}
+
+.relative {
+  position: relative;
+}
+
+.op0 {
+  opacity: 0;
+}
+
+.matuo {
+  margin: 0 auto;
+}
+
+/** reset end **/ 
+
+$base_size: 75;
+
+@function rem($px) {
+  @return ($px / $base_size) * 1rem;
+}
+
+$design_width: 750;
+
+html {
+  font-size: ($base_size / $design_width) * 100vw;
+  
+  @media screen and (min-width: 750px) {
+    font-size: 70px;
+  }
+}
+
+body {
+  width: 100%;
+  max-width: 700px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+$color: orange;
+/** rem end **/ 

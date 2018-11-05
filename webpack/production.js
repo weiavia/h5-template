@@ -22,7 +22,15 @@ module.exports = smart(base, {
           fallback: 'vue-style-loader',
           use: [
             'css-loader',
-            'sass-loader'
+            'sass-loader',
+            { 
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  absoluteDir('../src/resource/style/common.scss'),
+                ]
+              }
+            }
           ]
         })
       }

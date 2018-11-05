@@ -13,7 +13,19 @@ module.exports = smart(base, {
       },
       {
         test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+        use: [
+          'vue-style-loader', 
+          'css-loader', 
+          'sass-loader',
+          { 
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                absoluteDir('../src/resource/style/common.scss'),
+              ]
+            }
+          }
+        ]
       }
     ]
   },

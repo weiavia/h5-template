@@ -1,17 +1,21 @@
 <template>
-  <div>
-    <p>hello</p>
+  <div class="app">
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  data () {
+    return {
+    };
+  },
+  created() {
+
+  }
 }
 </script>
 
-<style>
-  p {
-    background: orange;
-  }
+<style lang='scss' scoped>
+  
 </style>

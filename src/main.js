@@ -1,5 +1,4 @@
-import '@/resource/style/reset.css'
-import '@/resource/style/rem.scss'
+import '@/resource/style/common.scss'
 import Vue from 'vue/dist/vue'
 import App from './app'
 
