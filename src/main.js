@@ -6,7 +6,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
 Vue.use(AlertPlugin)
 Vue.use(ToastPlugin)
 
-new Vue({
+window.vm = new Vue({
   el: '#app',
   template: '<App />',
   components: { App }
