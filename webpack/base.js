@@ -1,8 +1,10 @@
 const { absoluteDir } = require('./tool')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+// const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const TransformModulesPlugin = require('webpack-transform-modules-plugin')
+const vuxLoader = require('vux-loader')
 
-module.exports = {
+const webpackConfig = {
   entry: {
     main:  absoluteDir('../src/main.js')
   },
@@ -23,7 +25,7 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|ttf|woff)$/,
         use: [
           {
             loader: 'url-loader',
@@ -34,18 +36,35 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.styl$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'stylus-loader'
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'less-loader'
+        ]
       }
     ]
   },
   plugins: [
-    new VueLoaderPlugin(),
+    new TransformModulesPlugin(),
+    // new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: absoluteDir('../src/resource/index-template.html'),
       favicon: absoluteDir('../src/resource/images/icon.png')
     })
   ],
   resolve: {
-    extensions: ['.js', '.vue', '.scss', '.sass', '.css'],
+    extensions: ['.js', '.vue', '.scss', '.sass', '.css', '.json'],
     alias: {
       '@': absoluteDir('../src'),
       'pages': absoluteDir('../src/pages'),
@@ -53,3 +72,7 @@ module.exports = {
     } 
   }
 }
+
+module.exports = vuxLoader.merge(webpackConfig, {
+  plugins: ['vux-ui']
+})

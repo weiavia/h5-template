@@ -1,21 +1,26 @@
 <template>
-  <div class="app">
-    
+  <div class="app fullscreen">
+
   </div>
 </template>
 
 <script>
+
+
+
 export default {
   data () {
     return {
     };
   },
-  created() {
+  mounted() {
 
   }
 }
 </script>
 
 <style lang='scss' scoped>
-  
+  .app {
+    background: #eee;
+  }
 </style>
