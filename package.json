@@ -22,6 +22,7 @@
     "node-sass": "^4.9.4",
     "nodemon": "^1.18.5",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "px2rem-webpack-plugin": "^0.2.3",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^1.3.4",
     "style-loader": "^0.23.1",

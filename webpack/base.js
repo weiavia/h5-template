@@ -1,5 +1,6 @@
 const { absoluteDir } = require('./tool')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Px2remWebpackPlugin = require('px2rem-webpack-plugin')
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const TransformModulesPlugin = require('webpack-transform-modules-plugin')
 const vuxLoader = require('vux-loader')
@@ -38,11 +39,10 @@ const webpackConfig = {
         ]
       },
       {
-        test: /\.styl$/,
+        test: /\.css$/,
         use: [
             'style-loader',
-            'css-loader',
-            'stylus-loader'
+            'css-loader'
         ]
       },
       {
@@ -61,7 +61,8 @@ const webpackConfig = {
     new HtmlWebpackPlugin({
       template: absoluteDir('../src/resource/index-template.html'),
       favicon: absoluteDir('../src/resource/images/icon.png')
-    })
+    }),
+    new Px2remWebpackPlugin({originScreenWidth: 375, maxWidth: 460})
   ],
   resolve: {
     extensions: ['.js', '.vue', '.scss', '.sass', '.css', '.json'],
