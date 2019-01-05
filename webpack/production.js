@@ -1,6 +1,6 @@
 const optimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { smart } = require('webpack-merge')
 const { absoluteDir } = require('./tool')
 const base = require('./base')
@@ -11,34 +11,49 @@ module.exports = smart(base, {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'vue-style-loader',
-          use: ['css-loader']
-        }) 
+        use: [MiniCssExtractPlugin.loader,"css-loader"]
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'vue-style-loader',
-          use: [
-            'css-loader',
-            'sass-loader',
-            { 
-              loader: 'sass-resources-loader',
-              options: {
-                resources: [
-                  absoluteDir('../src/resource/style/common.scss'),
-                ]
-              }
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+          { 
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                absoluteDir('../src/resource/style/common.scss'),
+              ]
             }
-          ]
-        })
+          }
+        ]
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          chunks: "initial",
+          minChunks: 2,
+          maxInitialRequests: 5, // The default limit is too small to showcase the effect
+          minSize: 0 // This is example is too small to create commons chunks
+        },
+        vendor: {
+          test: /node_modules/,
+          chunks: "initial",
+          name: "vendor",
+          priority: 10,
+          enforce: true
+        }
+      }
+    }
+  },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {root: absoluteDir('../')}),
-    new ExtractTextPlugin('[name]-[hash].css'),
+    new MiniCssExtractPlugin({
+      filename: 'style/[name]-[hash].css',
+    }),
     new optimizeCssPlugin(),
   ]
 })

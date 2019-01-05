@@ -9,17 +9,19 @@
     "vux": "^2.9.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "babel-loader": "^8.0.4",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-env": "^1.3.2",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "less": "^2.7.3",
+    "install": "^0.12.2",
+    "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.9.4",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
     "nodemon": "^1.18.5",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "px2rem-webpack-plugin": "^0.2.3",
@@ -32,9 +34,8 @@
     "vux-loader": "^1.2.9",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
-    "webpack-merge": "^4.1.4",
-    "webpack-transform-modules-plugin": "^0.4.1"
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.1.4"
   },
   "scripts": {
     "build": "webpack --config webpack/production.js",
