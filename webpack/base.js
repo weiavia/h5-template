@@ -60,8 +60,8 @@ const webpackConfig = {
     new HtmlWebpackPlugin({
       template: absoluteDir('../src/resource/index-template.html'),
       favicon: absoluteDir('../src/resource/images/icon.png')
-    })
-    // new Px2remWebpackPlugin({originScreenWidth: 375})
+    }),
+    new Px2remWebpackPlugin({originScreenWidth: 375, maxWidth: 640})
   ],
   resolve: {
     extensions: ['.js', '.vue', '.scss', '.sass', '.css', '.json'],

@@ -1,10 +1,11 @@
 <template>
   <div class="app fullscreen">
-    <div id="box" />
+    <router-view />
   </div>
 </template>
 
 <script>
+import weiScroll from '@/base/weiScroll/weiScroll'
 
 export default {
   data () {
@@ -15,9 +16,6 @@ export default {
     this.$vux.alert.show({
       content: 'sunny'
     })
-  },
-  components: {
-    
   }
 }
 </script>
@@ -27,8 +25,8 @@ export default {
     display: flex;
   }
   #box {
-    width: 200px;
-    height: 200px; 
+    width: 100px;
+    height: 100px; 
     background: red;
   }
 </style>

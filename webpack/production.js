@@ -1,6 +1,6 @@
 const optimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { smart } = require('webpack-merge')
 const { absoluteDir } = require('./tool')
 const base = require('./base')
@@ -34,12 +34,6 @@ module.exports = smart(base, {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        commons: {
-          chunks: "initial",
-          minChunks: 2,
-          maxInitialRequests: 5, // The default limit is too small to showcase the effect
-          minSize: 0 // This is example is too small to create commons chunks
-        },
         vendor: {
           test: /node_modules/,
           chunks: "initial",
@@ -51,6 +45,7 @@ module.exports = smart(base, {
     }
   },
   plugins: [
+    new CleanWebpackPlugin('dist', {root: absoluteDir('../')}),
     new MiniCssExtractPlugin({
       filename: 'style/[name]-[hash].css',
     }),
