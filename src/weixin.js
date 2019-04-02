@@ -34,10 +34,10 @@ export default (callback)=>{
 	}
 	
 	var wxShare = {
-		img_url : 'http://h5.bukeyi.net/h5//lw/pigdraw/thumb.jpg',
+		img_url : 'http://img.cs26.com/h5/via/loanh/thumb.jpg',
 		link : location.href,
-		title : '抽新年签，测一测你2019年运势？',
-		desc : '小开心祝大家新年快乐'
+		title : '华融湘江银行“给力贷”小微金融重点推荐产品手册',
+		desc : '一键了解产品详情、申请贷款，让小微企业更给力！'
 	}
 
 	wx.ready(function(){

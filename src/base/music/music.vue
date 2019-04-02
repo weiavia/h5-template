@@ -1,7 +1,7 @@
 <template>
   <div class="music">
     <i class="icon"  v-bind:class="{ active: isPlay}" @click="isPlay=!isPlay" />
-    <audio src="http://img.cs26.com/h5/lw/pigdraw/bgm.mp3" ref="audio" loop="loop" />
+    <audio src="http://img.cs26.com/h5/via/loanh/bg.mp3" ref="audio" loop="loop" />
   </div>
 </template>
 
@@ -36,8 +36,8 @@ export default {
     background: url(./pause.png) no-repeat;
     background-size: 100% 100%;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 10px;
+    top: 10px;
     display: block;
     z-index: 1000;
     /* animation: rotate 2s infinite linear; */

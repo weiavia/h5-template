@@ -13,9 +13,9 @@ export default {
     };
   },
   mounted() {
-    this.$vux.alert.show({
-      content: 'sunny'
-    })
+    // this.$vux.alert.show({
+    //   content: 'sunny'
+    // })
   }
 }
 </script>
@@ -23,10 +23,5 @@ export default {
 <style lang='scss' scoped>
   .app {
     display: flex;
-  }
-  #box {
-    width: 100px;
-    height: 100px; 
-    background: red;
   }
 </style>

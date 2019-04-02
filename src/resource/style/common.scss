@@ -155,6 +155,10 @@ input[type="submit"] {
   position: relative;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .op0 {
   opacity: 0;
 }
@@ -173,6 +177,7 @@ body {
   margin: 0 auto;
   position: relative;
   background: #fff;
+  color: #333;
 }
 
 // /** px2rem-plugin 限制最大宽度配置end **/ 

@@ -7,6 +7,11 @@ const base = require('./base')
 
 module.exports = smart(base, {
   mode: 'production',
+  output: {
+    path: absoluteDir('../dist'),
+    filename: 'script/[name]-[hash].js',
+    publicPath: 'http://img.cs26.com/h5/via/loanh/'
+  },
   module: {
     rules: [
       {
@@ -48,7 +53,8 @@ module.exports = smart(base, {
     new CleanWebpackPlugin('dist', {root: absoluteDir('../')}),
     new MiniCssExtractPlugin({
       filename: 'style/[name]-[hash].css',
+      chunkFilename: "[id].css"
     }),
-    new optimizeCssPlugin(),
+    // new optimizeCssPlugin(),
   ]
 })
